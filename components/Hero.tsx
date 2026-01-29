@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
           autoPlay
           muted
           loop
-          className="w-full h-full object-cover opacity-50" 
+          className="w-full h-full object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
       </div>
@@ -101,12 +101,12 @@ const Hero: React.FC = () => {
       <div className="absolute inset-8 md:inset-12 z-20 pointer-events-none border border-blue-400/20 rounded-[20px]" />
 
       <div className="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-24 w-full h-full flex flex-col justify-center">
-        
+
         {/* Top Centered Label */}
         <div className="absolute top-24 left-1/2 -translate-x-1/2 text-center opacity-80 w-full">
-           <span className="text-white text-[10px] md:text-sm font-bold tracking-[0.3em] md:tracking-[0.5em] uppercase">
-             {SLIDES[currentIdx].sub}
-           </span>
+          <span className="text-white text-[10px] md:text-sm font-bold tracking-[0.3em] md:tracking-[0.5em] uppercase">
+            {SLIDES[currentIdx].sub}
+          </span>
         </div>
 
         {/* Main Centered Content */}
@@ -119,19 +119,17 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Centered Get Started Button */}
-          <div className="flex items-center group cursor-pointer w-fit mx-auto scale-90 md:scale-100">
-            <div className="bg-white px-8 md:px-10 py-4 md:py-5 rounded-l-2xl transition-all duration-300 group-hover:bg-neutral-100">
-              <span className="text-neutral-900 font-bold text-base md:text-lg">Get Started</span>
-            </div>
-            <div className="bg-neutral-900/40 backdrop-blur-md px-5 md:px-6 py-4 md:py-5 rounded-r-2xl border-l border-white/10 transition-all duration-300 group-hover:bg-white/20">
-              <ArrowRight className="text-white" size={24} />
+          <div className="group cursor-pointer w-fit mx-auto scale-90 md:scale-100">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-8 md:px-10 py-4 md:py-5 rounded-2xl flex items-center gap-3 transition-all duration-300 group-hover:bg-white/20 group-hover:border-white/40 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+              <span className="text-white font-bold text-base md:text-lg">Get Started</span>
+              <ArrowRight className="text-white transition-transform duration-300 group-hover:translate-x-1" size={24} />
             </div>
           </div>
         </div>
 
         {/* Bottom Bar: Socials (Left) & Card (Right) */}
         <div className="absolute bottom-12 md:bottom-20 left-8 md:left-20 right-8 md:right-20 flex items-end justify-between z-30">
-          
+
           {/* Social Links Positioned Near the Border */}
           <div className="hidden md:flex items-center gap-8 text-white/40">
             <Twitter className="hover:text-white transition-colors cursor-pointer" size={18} />
@@ -143,64 +141,60 @@ const Hero: React.FC = () => {
           <div className="flex flex-col items-end gap-6 md:gap-10 w-full md:w-auto">
             {/* Real Progress Loader */}
             <div className="flex items-center gap-4 mr-2 md:mr-6 self-end">
-               <span className="text-white/60 font-bold tracking-widest text-xs">{currentIdx + 1}/{SLIDES.length}</span>
-               <div className="relative w-8 h-8">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 40 40">
-                    <circle
-                      cx="20"
-                      cy="20"
-                      r="16"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="transparent"
-                      className="text-white/10"
-                    />
-                    <circle
-                      ref={progressCircleRef}
-                      cx="20"
-                      cy="20"
-                      r="16"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="transparent"
-                      strokeDasharray="100"
-                      strokeDashoffset="100"
-                      className="text-white"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-               </div>
+              <span className="text-white/60 font-bold tracking-widest text-xs">{currentIdx + 1}/{SLIDES.length}</span>
+              <div className="relative w-8 h-8">
+                <svg className="w-full h-full transform -rotate-90" viewBox="0 0 40 40">
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="16"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="transparent"
+                    className="text-white/10"
+                  />
+                  <circle
+                    ref={progressCircleRef}
+                    cx="20"
+                    cy="20"
+                    r="16"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="transparent"
+                    strokeDasharray="100"
+                    strokeDashoffset="100"
+                    className="text-white"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div>
             </div>
 
             {/* Next Segment Card */}
             <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] md:rounded-[48px] p-4 md:p-8 w-full md:w-[480px] shadow-2xl relative overflow-hidden group hover:bg-white/10 transition-all duration-700 cursor-pointer" onClick={() => setCurrentIdx(nextIdx)}>
-               <div className="flex items-center gap-4 md:gap-6">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden relative shrink-0 bg-black/50">
-                     {/* Thumbnail হিসেবে ভিডিওটিই ব্যবহার করা হয়েছে কিন্তু প্লে হবে না, বা আপনি চাইলে আলাদা ইমেজ দিতে পারেন */}
-                     <video 
-                       src={SLIDES[nextIdx].video} 
-                       className="w-full h-full object-cover opacity-60"
-                       muted
-                       preload="metadata"
-                     />
-                     <div className="absolute inset-0 flex items-center justify-center">
-                        <Play size={16} className="text-white" fill="white" />
-                     </div>
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden relative shrink-0 bg-black/50">
+                  {/* Thumbnail হিসেবে ভিডিওটিই ব্যবহার করা হয়েছে কিন্তু প্লে হবে না, বা আপনি চাইলে আলাদা ইমেজ দিতে পারেন */}
+                  <video
+                    src={SLIDES[nextIdx].video}
+                    className="w-full h-full object-cover opacity-60"
+                    muted
+                    preload="metadata"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Play size={16} className="text-white" fill="white" />
                   </div>
-                  <div className="flex-1 min-w-0">
-                     <h4 className="text-white font-medium text-sm md:text-base leading-tight mb-2 md:mb-4 truncate">
-                        {SLIDES[nextIdx].title}
-                     </h4>
-                     <div className="flex items-center group/btn">
-                        <div className="bg-white px-3 md:px-6 py-1.5 md:py-2 rounded-l-lg">
-                          <span className="text-black text-[8px] md:text-[9px] font-extrabold uppercase tracking-[0.2em]">Next Segment</span>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-md px-2 md:px-3 py-1.5 md:py-2 rounded-r-lg group-hover/btn:bg-white/20 transition-colors">
-                          <ArrowRight size={12} className="text-white" />
-                        </div>
-                     </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-white font-medium text-sm md:text-base leading-tight mb-2 md:mb-4 truncate">
+                    {SLIDES[nextIdx].title}
+                  </h4>
+                  <div className="group/btn inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 md:px-4 py-1.5 md:py-2.5 rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/20">
+                    <span className="text-white text-[8px] md:text-[10px] font-bold uppercase tracking-[0.15em]">Next Segment</span>
+                    <ArrowRight size={12} className="text-white transition-transform group-hover/btn:translate-x-0.5" />
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
