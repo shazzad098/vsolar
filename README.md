@@ -1,20 +1,28 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# ☀️ Vsolar - Premium Renewable Energy Ecosystem
 
-# Run and deploy your AI Studio app
+Vsolar is a high-end landing page designed for a luxury solar technology brand. It seamlessly blends Swiss precision engineering with architectural elegance to showcase the future of sustainable living.
 
-This contains everything you need to run your app locally.
+## ✨ Key Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1b0Ii3blIyMVGJhLPAy4rRCvi4Pfjrj-B
+* **Premium Visual Experience:** A minimal and sophisticated UI featuring modern Glassmorphism aesthetics.
+* **Immersive Animations:** Ultra-smooth scroll-triggered interactions powered by GSAP and ScrollTrigger.
+* **Dynamic Hero Slider:** Interactive video-based hero section with synchronized progress loaders.
+* **Comprehensive Ecosystem:** Dedicated sections for Impact, Strategic Partners, Nest Renew subscription, and Architectural Solutions.
+* **Fully Responsive:** Optimized for a flawless experience across mobile, tablet, and desktop devices.
 
-## Run Locally
+## 🛠️ Tech Stack
 
-**Prerequisites:**  Node.js
+* **Core:** React 19, TypeScript
+* **Styling:** Tailwind CSS
+* **Animation:** GSAP (GreenSock Animation Platform)
+* **Icons:** Lucide React
+* **Build Tool:** Vite
 
+## 🚀 Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Follow these steps to run the project locally on your machine:
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/shazzad098/vsolar.git](https://github.com/shazzad098/vsolar.git)
+cd vsolar
