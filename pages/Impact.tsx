@@ -69,7 +69,7 @@ const Impact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="rounded-[60px] overflow-hidden aspect-video shadow-3xl relative group border border-white/10">
             <img 
-              src="https://images.unsplash.com/photo-1509391366360-fe5bb6583e2f?auto=format&fit=crop&q=80&w=1200" 
+              src="https://cdn.pixabay.com/photo/2013/10/06/18/58/solar-field-191683_1280.jpg" 
               className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-1000" 
               alt="Solar Field"
             />
