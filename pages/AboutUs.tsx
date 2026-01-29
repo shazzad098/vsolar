@@ -1,9 +1,14 @@
-
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const counter1Ref = useRef<HTMLHeadingElement>(null);
+  const counter2Ref = useRef<HTMLHeadingElement>(null);
+  const counter3Ref = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -18,6 +23,35 @@ const AboutUs: React.FC = () => {
         y: 40, opacity: 0, duration: 1, stagger: 0.1,
         scrollTrigger: { trigger: '.about-content', start: 'top 80%' }
       });
+
+      // Counter Animations
+      const animateCounter = (element: HTMLElement | null, endValue: number, suffix: string = '') => {
+        if (!element) return;
+        
+        const obj = { value: 0 };
+        gsap.to(obj, {
+          value: endValue,
+          duration: 2.5,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 85%',
+            once: true,
+          },
+          onUpdate: () => {
+            if (endValue >= 1000) {
+              element.textContent = `${Math.floor(obj.value / 1000)}k${suffix}`;
+            } else {
+              element.textContent = `${Math.floor(obj.value)}${suffix}`;
+            }
+          }
+        });
+      };
+
+      animateCounter(counter1Ref.current, 14000, '+');
+      animateCounter(counter2Ref.current, 500, '+');
+      animateCounter(counter3Ref.current, 120, '');
+
     }, containerRef);
     return () => ctx.revert();
   }, []);
@@ -72,15 +106,15 @@ const AboutUs: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center border-t border-white/10 pt-24">
           <div>
-            <h3 className="text-7xl font-bold text-white mb-4 tracking-tighter">14k+</h3>
+            <h3 ref={counter1Ref} className="text-7xl font-bold text-white mb-4 tracking-tighter">0k+</h3>
             <p className="text-white/40 uppercase font-bold text-[10px] tracking-[0.3em]">Installs Completed</p>
           </div>
           <div>
-            <h3 className="text-7xl font-bold text-white mb-4 tracking-tighter">500+</h3>
+            <h3 ref={counter2Ref} className="text-7xl font-bold text-white mb-4 tracking-tighter">0+</h3>
             <p className="text-white/40 uppercase font-bold text-[10px] tracking-[0.3em]">Energy Engineers</p>
           </div>
           <div>
-            <h3 className="text-7xl font-bold text-white mb-4 tracking-tighter">120</h3>
+            <h3 ref={counter3Ref} className="text-7xl font-bold text-white mb-4 tracking-tighter">0</h3>
             <p className="text-white/40 uppercase font-bold text-[10px] tracking-[0.3em]">Global Patents</p>
           </div>
         </div>
